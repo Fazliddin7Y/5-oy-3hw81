@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+    <div class="max-w-sm w-full bg-white p-6 border rounded shadow">
+        <h1 class="text-lg font-bold mb-4 text-center">Login</h1>
+            <form id="loginForm">
+
+                <div class="mb-3">
+                    <label for="email" class="block text-sm font-medium">Email</label>
+                    <input type="email" id="email" class="w-full border px-2 py-1 rounded" placeholder="Emailni kiriting">
+                    <p id="emailError" class="text-red-500 text-xs hidden">Emailni kiriting</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="block text-sm font-medium">Parol</label>
+                    <input type="password" id="password" class="w-full border px-2 py-1 rounded" placeholder="Parolni kiriting">
+                    <p id="passwordError" class="text-red-500 text-xs hidden">parol kiriting</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="username" class="block text-sm font-medium">Nik</label>
+                    <input type="text" id="username" class="w-full border px-2 py-1 rounded" placeholder="Nikni kiriting">
+                    <p id="usernameError" class="text-red-500 text-xs hidden">Nik kiriting</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="block text-sm font-medium">Nomer</label>
+                    <input type="tel" id="phone" class="w-full border px-2 py-1 rounded" placeholder="Nomer kiriting">
+                    <p id="phoneError" class="text-red-500 text-xs hidden">Tel nomeringgizni qoldiring</p>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded font-semibold">Kirish</button>
+            </form>
+    </div>
+
+    <script src="./main.js" defer></script>
+</body>
+</html>
