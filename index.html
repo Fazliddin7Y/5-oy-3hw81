@@ -4,41 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="./main.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen">
-    <div class="max-w-sm w-full bg-white p-6 border rounded shadow">
-        <h1 class="text-lg font-bold mb-4 text-center">Login</h1>
-            <form id="loginForm">
-
-                <div class="mb-3">
-                    <label for="email" class="block text-sm font-medium">Email</label>
-                    <input type="email" id="email" class="w-full border px-2 py-1 rounded" placeholder="Emailni kiriting">
-                    <p id="emailError" class="text-red-500 text-xs hidden">Emailni kiriting</p>
-                </div>
-
-                <div class="mb-3">
-                    <label for="password" class="block text-sm font-medium">Parol</label>
-                    <input type="password" id="password" class="w-full border px-2 py-1 rounded" placeholder="Parolni kiriting">
-                    <p id="passwordError" class="text-red-500 text-xs hidden">parol kiriting</p>
-                </div>
-
-                <div class="mb-3">
-                    <label for="username" class="block text-sm font-medium">Nik</label>
-                    <input type="text" id="username" class="w-full border px-2 py-1 rounded" placeholder="Nikni kiriting">
-                    <p id="usernameError" class="text-red-500 text-xs hidden">Nik kiriting</p>
-                </div>
-
-                <div class="mb-3">
-                    <label for="phone" class="block text-sm font-medium">Nomer</label>
-                    <input type="tel" id="phone" class="w-full border px-2 py-1 rounded" placeholder="Nomer kiriting">
-                    <p id="phoneError" class="text-red-500 text-xs hidden">Tel nomeringgizni qoldiring</p>
-                </div>
-
-                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded font-semibold">Kirish</button>
-            </form>
-    </div>
-
-    <script src="./main.js" defer></script>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">New Account</h2>
+    <form id="crudForm" class="space-y-4">
+      <div>
+        <label for="firstName" class="block text-sm font-medium text-gray-700">First Name</label>
+        <input type="text" id="firstName" name="firstName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your first name">
+        <div class="text-red-500 text-sm mt-1" id="firstNameError"></div>
+      </div>
+      <div>
+        <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+        <input type="text" id="lastName" name="lastName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your last name">
+        <div class="text-red-500 text-sm mt-1" id="lastNameError"></div>
+      </div>
+      <div>
+        <label for="birthDate" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+        <input type="date" id="birthDate" name="birthDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+        <div class="text-red-500 text-sm mt-1" id="birthDateError"></div>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+        <div class="flex items-center space-x-4">
+          <label class="flex items-center">
+            <input type="radio" name="gender" value="male" class="form-radio h-4 w-4 text-blue-500">
+            <span class="ml-2 text-gray-700">Male</span>
+          </label>
+          <label class="flex items-center">
+            <input type="radio" name="gender" value="female" class="form-radio h-4 w-4 text-blue-500">
+            <span class="ml-2 text-gray-700">Female</span>
+          </label>
+        </div>
+        <div class="text-red-500 text-sm mt-1" id="genderError"></div>
+      </div>
+      <div>
+        <label for="mailbox" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="text" id="mailbox" name="mailbox" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your mailbox">
+        <div class="text-red-500 text-sm mt-1" id="mailboxError"></div>
+      </div>
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+        <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your phone number">
+        <div class="text-red-500 text-sm mt-1" id="phoneError"></div>
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md shadow hover:bg-blue-600 transition duration-200">Submit</button>
+      <div class="text-green-500 text-sm mt-4 text-center" id="formSuccess"></div>
+    </form>
+  </div>
 </body>
 </html>

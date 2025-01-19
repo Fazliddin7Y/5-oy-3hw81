@@ -1,41 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('loginForm').addEventListener('submit', (e) => {
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("crudForm");
+  const errors = {
+    firstName: "ismingzni kiriting",
+    lastName: "ikkinchi ismingizni kiriting",
+    birthDate: "to'g'ilgan yilinggizni kiriting",
+    gender: "jinsinggizni kiriting",
+    mailbox: "emaillingzini kiriting",
+    phone: "nomeringizni kiriting"
+  };
+
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    const username = document.getElementById('username');
-    const phone = document.getElementById('phone');
-
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-    const usernameError = document.getElementById('usernameError');
-    const phoneError = document.getElementById('phoneError');
-
     let isValid = true;
 
-    if (!email.value.includes('@') || !email.value.includes('.')) {
-      emailError.classList.remove('hidden');
-      isValid = false;
-    } else {
-      emailError.classList.add('hidden');
+    Object.keys(errors).forEach((key) => {
+      document.getElementById(`${key}Error`).textContent = "";
+    });
+
+    const formData = new FormData(form);
+    for (const [key, value] of formData.entries()) {
+      if (!value.trim()) {
+        document.getElementById(`${key}Error`).textContent = errors[key];
+        isValid = false;
+      }
     }
 
-    if (!password.value.trim()) {
-      passwordError.classList.remove('hidden');
-      isValid = false;
+    if (isValid) {
+      document.getElementById("formSuccess").textContent = "Form submitted successfully!";
+      form.reset();
     } else {
-      passwordError.classList.add('hidden');
+      document.getElementById("formSuccess").textContent = "";
     }
-
-    if (!username.value.trim()) {
-      usernameError.classList.remove('hidden');
-      isValid = false;
-    } else {
-      usernameError.classList.add('hidden');
-    }
-
-
-    if (isValid) alert('Login muvaffaqiyatli amalga oshirildi!');
   });
 });
