@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("crudForm");
+  const dataList = document.getElementById("dataList");
   const errors = {
-    firstName: "ismingzni kiriting",
-    lastName: "ikkinchi ismingizni kiriting",
-    birthDate: "to'g'ilgan yilinggizni kiriting",
-    gender: "jinsinggizni kiriting",
-    mailbox: "emaillingzini kiriting",
-    phone: "nomeringizni kiriting"
+    firstName: "Ismingizni kiriting",
+    lastName: "Ikkinchi ismingizni kiriting",
+    birthDate: "Tug'ilgan yilingizni kiriting",
+    gender: "Jinsingizni tanlang",
+    mailbox: "Emaillingizni kiriting",
+    phone: "Nomeringizni kiriting",
   };
 
   form.addEventListener("submit", (e) => {
@@ -26,7 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (isValid) {
-      document.getElementById("formSuccess").textContent = "Form submitted successfully!";
+      const listItem = document.createElement("li");
+      listItem.className = "bg-gray-100 p-3 rounded shadow";
+      listItem.textContent = `
+        Name: ${formData.get("firstName")} ${formData.get("lastName")} | 
+        Email: ${formData.get("mailbox")} | 
+        Phone: ${formData.get("phone")}
+      `;
+      dataList.appendChild(listItem);
+
+      document.getElementById("formSuccess").textContent = "Muvaffaqiyatli topshirildi";
       form.reset();
     } else {
       document.getElementById("formSuccess").textContent = "";
