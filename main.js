@@ -1,45 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("crudForm");
-  const dataList = document.getElementById("dataList");
-  const errors = {
-    firstName: "Ismingizni kiriting",
-    lastName: "Ikkinchi ismingizni kiriting",
-    birthDate: "Tug'ilgan yilingizni kiriting",
-    gender: "Jinsingizni tanlang",
-    mailbox: "Emaillingizni kiriting",
-    phone: "Nomeringizni kiriting",
-  };
+const form = document.getElementById('registrationForm');
+const displayData = document.getElementById('displayData');
+const dataList = document.getElementById('dataList');
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let isValid = true;
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-    Object.keys(errors).forEach((key) => {
-      document.getElementById(`${key}Error`).textContent = "";
-    });
+  const firstName = document.getElementById('firstName').value;
+  const lastName = document.getElementById('lastName').value;
+  const mailbox = document.getElementById('mailbox').value;
+  const phoneNumber = document.getElementById('phoneNumber').value;
+  const gender = document.querySelector('input[name="gender"]:checked')?.value || 'Not specified';
 
-    const formData = new FormData(form);
-    for (const [key, value] of formData.entries()) {
-      if (!value.trim()) {
-        document.getElementById(`${key}Error`).textContent = errors[key];
-        isValid = false;
-      }
-    }
+  const listItem = document.createElement('li');
+  listItem.classList.add('p-4', 'bg-gray-100', 'rounded', 'shadow');
+  listItem.textContent = `Name: ${firstName} ${lastName}, Mailbox: ${mailbox}@mail.ru, Phone: ${phoneNumber}, Gender: ${gender}`;
 
-    if (isValid) {
-      const listItem = document.createElement("li");
-      listItem.className = "bg-gray-100 p-3 rounded shadow";
-      listItem.textContent = `
-        Name: ${formData.get("firstName")} ${formData.get("lastName")} | 
-        Email: ${formData.get("mailbox")} | 
-        Phone: ${formData.get("phone")}
-      `;
-      dataList.appendChild(listItem);
+  dataList.appendChild(listItem);
+  displayData.classList.remove('hidden');
 
-      document.getElementById("formSuccess").textContent = "Muvaffaqiyatli topshirildi";
-      form.reset();
-    } else {
-      document.getElementById("formSuccess").textContent = "";
-    }
-  });
+  form.reset();
 });

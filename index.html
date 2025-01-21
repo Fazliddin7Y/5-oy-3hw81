@@ -4,63 +4,104 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script src="./main.js" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-start justify-center">
-  <div class="flex w-full max-w-6xl space-x-6">
-    <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
-      <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Yangi Akkaunt</h2>
-      <form id="crudForm" class="space-y-4">
-        <div>
-          <label for="firstName" class="block text-sm font-medium text-gray-700">Ismingiz</label>
-          <input type="text" id="firstName" name="firstName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your first name">
-          <div class="text-red-500 text-sm mt-1" id="firstNameError"></div>
-        </div>
-        <div>
-          <label for="lastName" class="block text-sm font-medium text-gray-700">2 ismingiz</label>
-          <input type="text" id="lastName" name="lastName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your last name">
-          <div class="text-red-500 text-sm mt-1" id="lastNameError"></div>
-        </div>
-        <div>
-          <label for="birthDate" class="block text-sm font-medium text-gray-700">To'g'ilgan yiligiz</label>
-          <input type="date" id="birthDate" name="birthDate" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
-          <div class="text-red-500 text-sm mt-1" id="birthDateError"></div>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-700 mb-2">Jinsingiz</label>
-          <div class="flex items-center space-x-4">
-            <label class="flex items-center">
-              <input type="radio" name="gender" value="male" class="form-radio h-4 w-4 text-blue-500">
-              <span class="ml-2 text-gray-700">Male</span>
-            </label>
-            <label class="flex items-center">
-              <input type="radio" name="gender" value="female" class="form-radio h-4 w-4 text-blue-500">
-              <span class="ml-2 text-gray-700">Female</span>
-            </label>
-          </div>
-          <div class="text-red-500 text-sm mt-1" id="genderError"></div>
-        </div>
-        <div>
-          <label for="mailbox" class="block text-sm font-medium text-gray-700">Email</label>
-          <input type="text" id="mailbox" name="mailbox" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your mailbox">
-          <div class="text-red-500 text-sm mt-1" id="mailboxError"></div>
-        </div>
-        <div>
-          <label for="phone" class="block text-sm font-medium text-gray-700">Telefon nomer</label>
-          <input type="tel" id="phone" name="phone" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your phone number">
-          <div class="text-red-500 text-sm mt-1" id="phoneError"></div>
-        </div>
-        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md shadow hover:bg-blue-600 transition duration-200">Submit</button>
-        <div class="text-green-500 text-sm mt-4 text-center" id="formSuccess"></div>
-      </form>
+<body class="bg-gray-100 p-8 font-sans">
+  <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-2xl font-bold mb-4 text-center">New Email</h1>
+
+    <div class="flex justify-center space-x-4 mb-6">
+      <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Adult</button>
+      <button class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">For kids</button>
     </div>
 
-    <div class="bg-white shadow-md rounded-lg p-4 w-1/3">
-      <h2 class="text-xl font-bold mb-4 text-gray-800">Submitted Data</h2>
-      <ul id="dataList" class="space-y-2">
-      </ul>
-    </div>
+    <form id="registrationForm" class="space-y-4">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label for="firstName" class="block text-sm font-medium text-gray-700">First Name</label>
+          <input 
+            id="firstName" 
+            type="text" 
+            placeholder="Enter your first name" 
+            class="mt-1 block w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div>
+          <label for="lastName" class="block text-sm font-medium text-gray-700">Last Name</label>
+          <input 
+            id="lastName" 
+            type="text" 
+            placeholder="Enter your last name" 
+            class="mt-1 block w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
+        <div class="grid grid-cols-3 gap-2">
+          <select class="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>Day</option>
+          </select>
+          <select class="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>Month</option>
+          </select>
+          <select class="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option>Year</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Gender</label>
+        <div class="flex items-center space-x-4">
+          <label class="flex items-center">
+            <input type="radio" name="gender" value="Male" class="mr-2">
+            Male
+          </label>
+          <label class="flex items-center">
+            <input type="radio" name="gender" value="Female" class="mr-2">
+            Female
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <label for="mailbox" class="block text-sm font-medium text-gray-700">Mailbox name</label>
+        <div class="flex items-center">
+          <input 
+            id="mailbox" 
+            type="text" 
+            placeholder="Enter your preferred mailbox name" 
+            class="mt-1 block w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <span class="ml-2">@mail.ru</span>
+        </div>
+      </div>
+
+      <div>
+        <label for="phoneNumber" class="block text-sm font-medium text-gray-700">Phone number</label>
+        <input 
+          id="phoneNumber" 
+          type="text" 
+          placeholder="Enter your phone number" 
+          class="mt-1 block w-full border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <button 
+        type="submit" 
+        class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:ring-2 focus:ring-blue-300"
+      >Register</button>
+    </form>
   </div>
+
+  <div id="displayData" class="mt-8 max-w-md mx-auto bg-white p-6 rounded shadow hidden">
+    <h2 class="text-xl font-bold mb-4 text-center">Submitted Information</h2>
+    <ul class="space-y-2" id="dataList"></ul>
+  </div>
+
+  <script defer src="./main.js"></script>
+  
 </body>
 </html>
